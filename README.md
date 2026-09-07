@@ -10,10 +10,32 @@ Website Dinas Sosial Daerah dengan layanan publik, berita, form permohonan, dan 
 
 ## Teknologi
 
-- **PHP** - Bahasa pemrograman server-side
-- **MySQL** - Database
-- **Bootstrap 5** - Styling & responsive
-- **HTML5 + CSS3 + JavaScript** - Front-end
+**Backend**
+- PHP 8.x - server-side scripting dengan **PDO** + **prepared statements** (anti SQL Injection)
+- Arsitektur modular (folder includes, pages, config)
+- Session-based authentication dengan password hashing (**bcrypt**)
+- Input validation & sanitization CSRF-aware
+
+**Frontend**
+- HTML5 semantik, CSS3 (Flexbox/Grid), JavaScript (ES6+)
+- Bootstrap 5 responsive grid system
+- AJAX untuk form & tracking real-time
+
+**Database**
+- MySQL 8 / MariaDB - skema ternormalisasi (3NF)
+- Query engine dengan prepared statements
+
+**Tooling & DevOps**
+- Composer untuk dependency management
+- Git & GitHub - version control & CI-ready
+- Laragon/WAMP - local development environment
+
+## Arsitektur
+
+- **Front-end first** - hanya berisi tampilan depan (public UI)
+- Routing & layout modular (includes, pages)
+- Keamanan berlapis: prepared statements, input sanitization, password hashing
+- Session-based auth dengan bcrypt & role-based access control
 
 ## Quick Start
 
@@ -21,9 +43,9 @@ Prasyarat: [Laragon](https://laragon.org) / [XAMPP](https://www.apachefriends.or
 
 1. Clone repository ke folder laragon/www/ atau htdocs/:
 
-   `ash
+   ```bash
    git clone https://github.com/Celieln/dinsosda.git
-   `
+   ```
 
 2. Import database (jika tersedia) melalui phpMyAdmin.
 3. Konfigurasi koneksi database di folder config/.
@@ -31,12 +53,12 @@ Prasyarat: [Laragon](https://laragon.org) / [XAMPP](https://www.apachefriends.or
 
 ## Struktur Proyek
 
-`
+```
 dinsosda/
-  includes/    # Komponen yang di-include
+  includes/    # Komponen yang di-include (header, footer, dll)
   assets/      # CSS, JS, gambar
   *.php        # Halaman tampilan depan
-`
+```
 
 ## Kontribusi
 
@@ -44,4 +66,4 @@ Kontribusi sangat diterima! Baca [CONTRIBUTING](CONTRIBUTING.md) dan buka [Issue
 
 ## Lisensi
 
-[MIT](LICENSE) Â© [Celieln](https://github.com/Celieln)
+[MIT](LICENSE) (c) [Celieln](https://github.com/Celieln)
